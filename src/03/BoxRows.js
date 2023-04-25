@@ -1,18 +1,40 @@
+import { useState } from "react";
+
 const BoxRows = ({ mv }) => {
-  let increIcon = "-";
-  if (mv.rankInten > 0) {
-    increIcon = "🔼";
-  } else if (mv.rankInten < 0) {
-    increIcon = "🔽";
+  const [footTag, setFootTag] = useState();
+
+  const showMv = (row) => {
+    setFootTag(row.movieCd);
+  };
+
+  let trTags = [];
+  for (let row of mv) {
+    let increIcon = "-";
+    if (row.rankInten > 0) {
+      increIcon = "🔼";
+    } else if (row.rankInten < 0) {
+      increIcon = "🔽";
+    }
+
+    trTags.push(
+      <tr key={row.movieCd} onClick={() => showMv(row)}>
+        <td>{row.rank}</td>
+        <td>{row.movieNm}</td>
+        <td>{Number(row.salesAmt).toLocaleString()}</td>
+        <td>{increIcon}</td>
+      </tr>
+    );
   }
 
   return (
-    <tr>
-      <td>{mv.rank}</td>
-      <td>{mv.movieNm}</td>
-      <td>{Number(mv.salesAmt).toLocaleString()}</td>
-      <td>{increIcon}</td>
-    </tr>
+    <>
+      <tbody>{trTags}</tbody>
+      <tfoot>
+        <tr>
+          <td colSpan={4}>{footTag}</td>
+        </tr>
+      </tfoot>
+    </>
   );
 };
 

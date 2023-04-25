@@ -220,11 +220,7 @@ const Box = () => {
               <th scope="col">증감</th>
             </tr>
           </thead>
-          <tbody>
-            {mvlist.map((mv) => {
-              return <BoxRows key={mv.movieCd} mv={mv} />;
-            })}
-          </tbody>
+          <BoxRows mv={mvlist} />
         </table>
       </article>
     </main>

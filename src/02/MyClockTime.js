@@ -10,9 +10,11 @@ const MyClockTime = () => {
     const date = new Date();
     let ma = "오전";
     let h = date.getHours();
-    if (h > 12) {
+    if (h === 24) {
+      h = 0;
+    } else if (h >= 12) {
       ma = "오후";
-      h -= 12;
+      if (h > 12) h -= 12;
     }
     const m = date.getMinutes();
     const s = date.getSeconds();

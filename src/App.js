@@ -1,14 +1,25 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./Home";
 import Hello from "./01/Hello";
 import MyClock from "./02/MyClock";
 import Box from "./03/Box";
+import MyDiv from "./04/MyDiv";
 import "./App.css";
+import Dust from "./05/Dust";
 
 function App() {
   return (
     <>
-      {/* <Hello /> */}
-      {/* <MyClock /> */}
-      <Box />
+      <BrowserRouter>
+        <Routes>
+          <Route index element={<Home />}></Route>
+          <Route path="hello" element={<Hello />}></Route>
+          <Route path="myclock" element={<MyClock />}></Route>
+          <Route path="box" element={<Box />}></Route>
+          <Route path="mydiv" element={<MyDiv />}></Route>
+          <Route path="dust" element={<Dust />}></Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
