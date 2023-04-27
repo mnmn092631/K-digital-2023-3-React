@@ -1,0 +1,28 @@
+h1 {
+  text-align: center;
+  margin: 0;
+}
+
+tbody > tr {
+  cursor: pointer;
+}
+
+tbody > tr:hover {
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
+    rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+  transition: box-shadow 350ms ease-in-out;
+}
+
+tbody > tr > td:nth-child(2) {
+  font-weight: 600;
+}
+
+tfoot {
+  background-color: #a1a7ff;
+}
+
+tfoot > tr > td {
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+}

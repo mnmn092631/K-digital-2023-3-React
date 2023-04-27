@@ -1,0 +1,13 @@
+table > thead > tr > th,
+table > tbody > tr > td {
+  text-align: center;
+}
+
+thead {
+  background-color: #94d3ff;
+}
+
+thead > tr > th {
+  font-weight: 600;
+  color: #fff;
+}
