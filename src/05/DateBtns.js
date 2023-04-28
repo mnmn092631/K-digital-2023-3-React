@@ -4,7 +4,8 @@ const Btn = styled.button`
   ${({ active }) =>
     active &&
     css`
-      background-color: #1c6f9e;
+      background-color: #87addb;
+      border: none;
     `}
 `;
 
