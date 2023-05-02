@@ -6,6 +6,7 @@ import Box from "./03/Box";
 import MyDiv from "./04/MyDiv";
 import "./App.css";
 import Dust from "./05/Dust";
+import Taccident from "./06/Taccident";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="box" element={<Box />}></Route>
           <Route path="mydiv" element={<MyDiv />}></Route>
           <Route path="dust" element={<Dust />}></Route>
+          <Route path="taccident" element={<Taccident />}></Route>
         </Routes>
       </BrowserRouter>
     </>
