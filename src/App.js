@@ -7,6 +7,7 @@ import MyDiv from "./04/MyDiv";
 import "./App.css";
 import Dust from "./05/Dust";
 import Taccident from "./06/Taccident";
+import MyRef from "./07/MyRef";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="mydiv" element={<MyDiv />}></Route>
           <Route path="dust" element={<Dust />}></Route>
           <Route path="taccident" element={<Taccident />}></Route>
+          <Route path="myref" element={<MyRef />}></Route>
         </Routes>
       </BrowserRouter>
     </>
