@@ -58,17 +58,18 @@ const Taccident = () => {
 
         <footer>
           <div className="grid">
-            {selData &&
-              Object.keys(selData).map(
-                (item) =>
-                  item !== "사고유형_대분류" &&
-                  item !== "사고유형_중분류" && (
-                    <>
-                      <small>{item}</small>
-                      <strong>{Number(selData[item]).toLocaleString()}</strong>
-                    </>
-                  )
-              )}
+            {[
+              "사고건수",
+              "사망자수",
+              "중상자수",
+              "경상자수",
+              "부상신고자수",
+            ].map((item) => (
+              <>
+                <small>{item}</small>
+                <strong>{Number(selData[item]).toLocaleString()}</strong>
+              </>
+            ))}
           </div>
         </footer>
       </article>
