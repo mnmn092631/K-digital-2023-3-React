@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import aData from "./dataTaccident.json";
 import TaccidentNav from "./TaccidenetNav";
 import TaccidentNav2 from "./TaccidentNav2";
+import Detail from "./Detail";
 
 const Taccident = () => {
   let data = aData.data;
@@ -57,20 +58,7 @@ const Taccident = () => {
         />
 
         <footer>
-          <div className="grid">
-            {[
-              "사고건수",
-              "사망자수",
-              "중상자수",
-              "경상자수",
-              "부상신고자수",
-            ].map((item) => (
-              <>
-                <small>{item}</small>
-                <strong>{Number(selData[item]).toLocaleString()}</strong>
-              </>
-            ))}
-          </div>
+          <Detail selData={selData} />
         </footer>
       </article>
     </main>
