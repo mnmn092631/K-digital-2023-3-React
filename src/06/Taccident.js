@@ -57,9 +57,11 @@ const Taccident = () => {
           setSel2={setSel2}
         />
 
-        <footer>
-          <Detail selData={selData} />
-        </footer>
+        {selData && (
+          <footer>
+            <Detail selData={selData} />
+          </footer>
+        )}
       </article>
     </main>
   );
