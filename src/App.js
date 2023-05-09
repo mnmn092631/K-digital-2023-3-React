@@ -8,6 +8,7 @@ import "./App.css";
 import Dust from "./05/Dust";
 import Taccident from "./06/Taccident";
 import MyRef from "./07/MyRef";
+import Gallery from "./08/Gallery";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="dust" element={<Dust />}></Route>
           <Route path="taccident" element={<Taccident />}></Route>
           <Route path="myref" element={<MyRef />}></Route>
+          <Route path="gallery" element={<Gallery />}></Route>
         </Routes>
       </BrowserRouter>
     </>

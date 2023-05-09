@@ -9,6 +9,9 @@ const Home = () => {
         </header>
         <ul>
           <li>
+            <Link to="gallery">[23.05.09] : Gallery - encodeURI, fetch</Link>
+          </li>
+          <li>
             <Link to="myref">[23.05.04] : useRef</Link>
           </li>
           <li>
