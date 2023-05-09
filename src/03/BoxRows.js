@@ -21,7 +21,6 @@ const Td = styled.td`
 
 const BoxRows = ({ mv }) => {
   const [footTag, setFootTag] = useState("영화를 선택하세요.");
-  console.log(mv);
 
   const showMv = (row) => {
     setFootTag(`[${row.movieCd}] ${row.movieNm} 개봉일 : ${row.openDt}`);
