@@ -1,10 +1,6 @@
-/*
-관광사진갤러리 키워드 검색 목록 조회
-https://apis.data.go.kr/B551011/PhotoGalleryService1/gallerySearchList1?serviceKey=9yPsHEIju5rRDqHYs0gdupRMIn7xv%2BZEb1r2005NJpFnf1Nco8oqnZaSm5KcJwWlk3mtSZabtiK2OJAr2UcQlQ%3D%3D&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest&arrange=A&keyword=%ec%9e%90%ea%b0%88%ec%b9%98&_type=json
-*/
-
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
+import GalleryView from "./GalleryView";
 
 const BtnsWrapper = styled.div`
   display: flex;
@@ -17,21 +13,35 @@ const BtnsWrapper = styled.div`
 
 const Gallery = () => {
   const keywordRef = useRef();
+  const [encodeK, setEncodeK] = useState("");
+  const [photos, setPhotos] = useState([]);
 
   useEffect(() => {
     keywordRef.current.focus();
-  }, []);
+    encodeK && getData(encodeK);
+    keywordRef.current.value = decodeURI(encodeK);
+  }, [encodeK]);
+
+  const getData = (encodeK) => {
+    let url = `https://apis.data.go.kr/B551011/PhotoGalleryService1/gallerySearchList1?serviceKey=9yPsHEIju5rRDqHYs0gdupRMIn7xv%2BZEb1r2005NJpFnf1Nco8oqnZaSm5KcJwWlk3mtSZabtiK2OJAr2UcQlQ%3D%3D&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest&arrange=A&keyword=${encodeK}&_type=json`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setPhotos(data.response.body.items.item))
+      .catch((e) => console.log(e));
+  };
 
   const show = (e) => {
     e.preventDefault();
     if (keywordRef.current.value === "") return;
     let encodeKW = encodeURI(keywordRef.current.value);
-    console.log(encodeKW);
-    keywordRef.current.value = "";
+    setEncodeK(encodeKW);
   };
 
   const showClear = (e) => {
     e.preventDefault();
+    setEncodeK("");
+    setPhotos([]);
+    keywordRef.current.value = "";
   };
 
   return (
@@ -45,7 +55,6 @@ const Gallery = () => {
             <input
               ref={keywordRef}
               type="text"
-              id="txt1"
               placeholder="키워드를 입력해주세요."
             />
             <BtnsWrapper>
@@ -55,6 +64,7 @@ const Gallery = () => {
           </div>
         </article>
       </form>
+      <GalleryView photos={photos} setEncodeK={setEncodeK} />
     </main>
   );
 };
