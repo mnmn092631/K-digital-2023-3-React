@@ -9,12 +9,9 @@ const Modal = styled.article`
 const ModalTitle = styled(Title)`
   position: sticky;
   top: 0;
-  justify-content: start;
-  align-items: baseline;
   cursor: default;
 
   & > span:nth-child(2) {
-    margin-left: 10px;
     flex-grow: 1;
   }
 
