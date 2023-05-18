@@ -9,21 +9,25 @@ import Dust from "./05/Dust";
 import Taccident from "./06/Taccident";
 import MyRef from "./07/MyRef";
 import Gallery from "./08/Gallery";
+import Fcst from "./10/Fcst";
+import RouteMain from "./09/RouteMain";
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route index element={<Home />}></Route>
-          <Route path="hello" element={<Hello />}></Route>
-          <Route path="myclock" element={<MyClock />}></Route>
-          <Route path="box" element={<Box />}></Route>
-          <Route path="mydiv" element={<MyDiv />}></Route>
-          <Route path="dust" element={<Dust />}></Route>
-          <Route path="taccident" element={<Taccident />}></Route>
-          <Route path="myref" element={<MyRef />}></Route>
-          <Route path="gallery" element={<Gallery />}></Route>
+          <Route index element={<Home />} />
+          <Route path="hello" element={<Hello />} />
+          <Route path="myclock" element={<MyClock />} />
+          <Route path="box" element={<Box />} />
+          <Route path="mydiv" element={<MyDiv />} />
+          <Route path="dust" element={<Dust />} />
+          <Route path="taccident" element={<Taccident />} />
+          <Route path="myref" element={<MyRef />} />
+          <Route path="gallery" element={<Gallery />} />
+          <Route path="route/*" element={<RouteMain />} />
+          <Route path="fcst/*" element={<Fcst />} />
         </Routes>
       </BrowserRouter>
     </>
