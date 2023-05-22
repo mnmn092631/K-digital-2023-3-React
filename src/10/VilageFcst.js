@@ -1,10 +1,12 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import FcstTable from "./FcstTable";
 import { useEffect, useState } from "react";
 import codeData from "./getcode.json";
 import { Header } from "./Style";
 
 const VilageFcst = () => {
+  const navigator = useNavigate();
+
   const [data, setData] = useState();
   const [category, setCategory] = useState("POP");
 
@@ -23,7 +25,13 @@ const VilageFcst = () => {
     let url = `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=9yPsHEIju5rRDqHYs0gdupRMIn7xv%2BZEb1r2005NJpFnf1Nco8oqnZaSm5KcJwWlk3mtSZabtiK2OJAr2UcQlQ%3D%3D&numOfRows=809&pageNo=1&base_date=${dt}&base_time=0500&nx=${x}&ny=${y}&dataType=json`;
     fetch(url)
       .then((res) => res.json())
-      .then((data) => setData(data.response.body.items.item))
+      .then((data) => {
+        if (data.response.header.resultMsg === "NO_DATA") {
+          alert("데이터가 없습니다.");
+          navigator("/fcst");
+        }
+        setData(data.response.body.items.item);
+      })
       .catch((e) => console.log(e));
   };
 
