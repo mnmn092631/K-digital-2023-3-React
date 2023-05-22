@@ -4,9 +4,11 @@ import xyData from "./getxy.json";
 
 const FcstMain = () => {
   const navigator = useNavigate();
+
   const [area, setArea] = useState("서울특별시");
   const [x, setX] = useState(60);
   const [y, setY] = useState(127);
+
   const dateRef = useRef();
 
   let dateObj = new Date();
