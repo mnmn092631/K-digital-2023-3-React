@@ -9,7 +9,7 @@ const Home = () => {
         </header>
         <ul>
           <li>
-            <Link to="fcst">[23.05.18.] : fcst</Link>
+            <Link to="fcst">[23.05.18. - 23.05.22.] : fcst</Link>
           </li>
           <li>
             <Link to="route">
