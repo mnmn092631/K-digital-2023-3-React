@@ -2,16 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import FcstTable from "./FcstTable";
 import { useEffect, useState } from "react";
 import codeData from "./getcode.json";
-import { Header } from "./Style";
-import styled, { css } from "styled-components";
-
-const SelBtn = styled.button`
-  ${({ active }) =>
-    active &&
-    css`
-      background-color: blue;
-    `}
-`;
+import { BtnWrapper, Header, SelBtn } from "./Style";
 
 const VilageFcst = () => {
   const navigator = useNavigate();
@@ -73,7 +64,7 @@ const VilageFcst = () => {
             ))}
           </select>
         </Header>
-        <div className="grid">
+        <BtnWrapper>
           {dates &&
             dates.map((item) => (
               <SelBtn
@@ -85,7 +76,7 @@ const VilageFcst = () => {
                 {item.slice(0, 4)}-{item.slice(4, 6)}-{item.slice(6, 8)}
               </SelBtn>
             ))}
-        </div>
+        </BtnWrapper>
         {data && (
           <FcstTable
             data={data}

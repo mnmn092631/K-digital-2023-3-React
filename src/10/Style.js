@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Header = styled.header`
   display: flex;
@@ -15,4 +15,22 @@ export const Header = styled.header`
   & > select {
     margin: 0;
   }
+`;
+
+export const BtnWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  & > button {
+    width: 24%;
+  }
+`;
+
+export const SelBtn = styled.button`
+  ${({ active }) =>
+    active &&
+    css`
+      background-color: lightskyblue;
+      border: none;
+    `}
 `;
