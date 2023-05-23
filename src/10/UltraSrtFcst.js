@@ -7,7 +7,7 @@ import { Header } from "./Style";
 const UltraSrtFcst = () => {
   const navigator = useNavigate();
 
-  const [data, setData] = useState("");
+  const [data, setData] = useState([]);
   const [category, setCategory] = useState("T1H");
 
   const ultraCode = codeData.filter(
@@ -58,7 +58,12 @@ const UltraSrtFcst = () => {
           </select>
         </Header>
         {data && (
-          <FcstTable data={data} category={category} codeData={ultraCode} />
+          <FcstTable
+            data={data}
+            category={category}
+            codeData={ultraCode}
+            selDate={dt}
+          />
         )}
       </article>
     </>

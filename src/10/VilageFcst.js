@@ -3,12 +3,23 @@ import FcstTable from "./FcstTable";
 import { useEffect, useState } from "react";
 import codeData from "./getcode.json";
 import { Header } from "./Style";
+import styled, { css } from "styled-components";
+
+const SelBtn = styled.button`
+  ${({ active }) =>
+    active &&
+    css`
+      background-color: blue;
+    `}
+`;
 
 const VilageFcst = () => {
   const navigator = useNavigate();
 
-  const [data, setData] = useState();
+  const [data, setData] = useState([]);
   const [category, setCategory] = useState("POP");
+  const [dates, setDates] = useState([]);
+  const [selDate, setSelDate] = useState("");
 
   const vilageCode = codeData.filter((data) => data["예보구분"] === "단기예보");
 
@@ -40,6 +51,13 @@ const VilageFcst = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(() => {
+    let dateSet = new Set();
+    data.forEach((item) => dateSet.add(item.fcstDate));
+    setDates([...dateSet]);
+    setSelDate([...dateSet][0]);
+  }, [data]);
+
   return (
     <>
       <article>
@@ -55,8 +73,26 @@ const VilageFcst = () => {
             ))}
           </select>
         </Header>
+        <div className="grid">
+          {dates &&
+            dates.map((item) => (
+              <SelBtn
+                type="button"
+                onClick={() => setSelDate(item)}
+                active={item === selDate}
+                key={item}
+              >
+                {item.slice(0, 4)}-{item.slice(4, 6)}-{item.slice(6, 8)}
+              </SelBtn>
+            ))}
+        </div>
         {data && (
-          <FcstTable data={data} category={category} codeData={vilageCode} />
+          <FcstTable
+            data={data}
+            category={category}
+            codeData={vilageCode}
+            selDate={selDate}
+          />
         )}
       </article>
     </>
