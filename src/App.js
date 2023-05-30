@@ -11,6 +11,7 @@ import MyRef from "./07/MyRef";
 import Gallery from "./08/Gallery";
 import Fcst from "./10/Fcst";
 import RouteMain from "./09/RouteMain";
+import Cnt from "./12/Cnt";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="gallery" element={<Gallery />} />
           <Route path="route/*" element={<RouteMain />} />
           <Route path="fcst/*" element={<Fcst />} />
+          <Route path="cnt/*" element={<Cnt />} />
         </Routes>
       </BrowserRouter>
     </>

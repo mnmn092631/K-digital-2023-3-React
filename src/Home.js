@@ -9,6 +9,9 @@ const Home = () => {
         </header>
         <ul>
           <li>
+            <Link to="cnt">[23.05.30.] : recoil</Link>
+          </li>
+          <li>
             <Link to="fcst">[23.05.18. - 23.05.22.] : fcst</Link>
           </li>
           <li>
